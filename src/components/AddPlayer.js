@@ -16,7 +16,13 @@ class AddPlayer extends Component {
         event.preventDefault();
         // console.log(event.target);
         console.log('Submitting form with name ' + this.state.name);
-        if (this.state.name.length) this.props.addPlayer(this.state.name);
+        // If this.state.name is empty string '' then it evaluates to 'false'.
+        if (this.state.name) {
+            this.props.addPlayer(this.state.name);
+        }
+        else {
+            console.log('You can not add empty string name!');
+        }
     };
 
     changeHandler = (event) => {
